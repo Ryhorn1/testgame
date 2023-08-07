@@ -1,9 +1,9 @@
 var pet = {
-	name : "BBQ MAN",
-	sex : "M",
+	name : "Glaze",
+	sex : "F",
 	age : 0,
-	health : 50,
-	happiness : 50,
+	health : 999,
+	happiness : 100,
 	hunger : 50,
 	mood : "Neutral",
 	size : 60,

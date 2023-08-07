@@ -225,7 +225,7 @@ function tick(){
 	tickCounter++;
 	console.log("tick");
 	pet.hunger = pet.hunger-3;
-	pet.happiness = pet.happiness-2;
+	//pet.happiness = pet.happiness-2;
 	
 	//further decrease stats if pet is sick
 	if(pet.sick){
@@ -242,6 +242,12 @@ function tick(){
 	else if(pet.hunger>90){
 		if (Math.random()>0.70){
 			pet.poop++;
+			if (Math.random()>0.50){
+				printText("~ah... Sorry master I shitted");
+			}
+			else{
+				printText("*farts* I took a shit master");
+			}
 		} 
 	}
 	else if(pet.hunger<=90){
@@ -252,13 +258,13 @@ function tick(){
 	pet.poop = Math.min(Math.max(pet.poop,0),3);
 	//amount of poop alters probability of sickness
 	if(Math.random()<(0.1*pet.poop)){
-		pet.sick = true;
+		//pet.sick = true;
 	}
 	
 	if (pet.mood != "dead"){
 		pet.age++;
 	}
-	console.log("dung: "+pet.poop);
+	console.log("Poop: "+pet.poop);
 }
 
 //turn ailment sprites "on" or "off" depending on the pets properties
