@@ -32,7 +32,7 @@ function foodItem(name,spriteIndex,cost,desc,hungRestore){
 }
 //
 invFoodArray = [
-	new foodItem("Burger",0,10,"Fast food",8),
+	new foodItem("Human",0,10,"Vore?",100),
 	/*
 	new foodItem("Steak",1,20,"Cow flesh.\nCosts $20",18),
 	new foodItem("Creamsicle",2,5,"I hate creamsicles\nCosts $5",3),
@@ -40,7 +40,6 @@ invFoodArray = [
 	new foodItem("Egg",4,20,"Egg flesh\nCosts $20",20),
 	new foodItem("Coffee",5,20,"Bitter drink\nCosts $20",20),
 	new foodItem("Drumstick",6,20,"Bird flesh\nCosts $20",20),
-	new foodItem("Shoe",7,150,"You pay for the design\nCosts $150",2),
 	new foodItem("Chicken",8,20,"Fresh chicken\nCosts $20",20)
 	*/
 ];

@@ -42,7 +42,7 @@ var main = {
 		petSprite.animations.add("happy",[6,7],2,true);
 		petSprite.animations.add("angry",[8,9],2,true);
 		counter = game.add.bitmapText(75, game.world.centerY-200,"pixel","tickCounter",32);
-		petTextBox = game.add.bitmapText(75, game.world.centerY+100,"pixel",pet.name,12);
+		petTextBox = game.add.bitmapText(75, game.world.centerY+150,"pixel",pet.name+":",12);
 		petTextOut = game.add.bitmapText(75, game.world.centerY+200,"pixel","petText",18);
 		petSprite.play("neutral");
 		//add Sprites for ailments - conditions that can afflict the pet.

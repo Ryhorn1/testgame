@@ -49,7 +49,7 @@ foodArray = [
 	new foodItem("Egg",4,20,"Egg flesh",20),
 	new foodItem("Coffee",5,20,"Bitter drink",20),
 	new foodItem("Drumstick",6,20,"Bird flesh",20),
-	new foodItem("Human",7,150,"Vore?",2),
+	new foodItem("Human",0,0,"Vore?",100),
 	new foodItem("Chicken",8,20,"Fresh chicken",20)
 ];
 //playItem(name,spriteIndex,cost,useCost,desc,happinessRestore)
