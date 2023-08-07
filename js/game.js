@@ -10,6 +10,8 @@ date = new Date();
 
 var tickCounter = 0 ;
 
+var petText = "";
+
 var time;
 
 
@@ -40,6 +42,7 @@ var main = {
 		petSprite.animations.add("happy",[6,7],2,true);
 		petSprite.animations.add("angry",[8,9],2,true);
 		counter = game.add.bitmapText(75, game.world.centerY-200,"pixel","tickCounter",32);
+		petTextOut = game.add.bitmapText(75, game.world.centerY+200,"pixel","petText",32);
 		petSprite.play("neutral");
 		//add Sprites for ailments - conditions that can afflict the pet.
 		sickSprite = game.add.sprite(petSprite.x+50,petSprite.y-50,"ailmentSheet");
@@ -84,6 +87,7 @@ var main = {
         else{
             counter.text = "";
         }
+	petTextOut.text = petText;
 		
 		
 		//now calculate pet mood
@@ -197,7 +201,7 @@ var medicine = {
 //---------------------------SUBSTATE FUNCTIONS---------------------------------------
 
 //time per tick, in minutes
-var TIME_PER_TICK = 5;
+var TIME_PER_TICK = 1;
 var timeBegin = 0;
 
 //This function checks if the "real world clock" has advanced enough to increment the game a tick.
@@ -237,16 +241,18 @@ function tick(){
 		pet.hunger = pet.hunger-5;
 		pet.happiness = pet.happiness-2;
 	}
+
+	//
 	pet.happiness = Math.min(Math.max(pet.happiness,0),100);
 	pet.hunger = Math.min(Math.max(pet.hunger,0),100);
 
 	//if happiness is below 20, Glaze is bored and/or sad
 	if(pet.happiness<20){
-		printText("I'm bored master, can we play?");
+		petText = "I'm bored master, can we play?";
 	}
 	
 	if(pet.hunger<15){
-		printText("I'm hungry master, can you feed me plz?");
+		petText = "I'm hungry master, can you feed me plz?";
 	}
 	
 	//pet has a chance of pooping every tick
@@ -257,10 +263,10 @@ function tick(){
 		if (Math.random()>0.70){
 			pet.poop++;
 			if (Math.random()>0.50){
-				printText("~ah... Sorry master I shitted");
+				petText = "~ah... Sorry master I shitted";
 			}
 			else{
-				printText("*farts* I took a shit master");
+				petText = "*farts* I took a shit master";
 			}
 		} 
 	}
@@ -268,10 +274,10 @@ function tick(){
 		if (Math.random()>0.85){
 			pet.poop++;
 			if (Math.random()>0.50){
-				printText("~ah... Sorry master I shitted");
+				petText = "~ah... Sorry master I shitted";
 			}
 			else{
-				printText("*farts* I took a shit master");
+				petText = "*farts* I took a shit master";
 			}
 		}
 	}
