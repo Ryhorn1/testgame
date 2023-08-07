@@ -217,6 +217,11 @@ function tickCheck(){
 		 
 }
 
+function printText(contents){
+	var text = game.add.bitmapText(75, game.world.centerY-200,"pixel",contents,32);
+	//text.anchor.set(0.5);
+}
+
 function tick(){
 	console.log(globalVal.ezMoney);
 	if(globalVal.ezMoney){
@@ -234,6 +239,15 @@ function tick(){
 	}
 	pet.happiness = Math.min(Math.max(pet.happiness,0),100);
 	pet.hunger = Math.min(Math.max(pet.hunger,0),100);
+
+	//if happiness is below 20, Glaze is bored and/or sad
+	if(pet.happiness<20){
+		printText("I'm bored master, can we play?");
+	}
+	
+	if(pet.hunger<15){
+		printText("I'm hungry master, can you feed me plz?");
+	}
 	
 	//pet has a chance of pooping every tick
 	if(globalVal.noToilet){
@@ -253,6 +267,12 @@ function tick(){
 	else if(pet.hunger<=90){
 		if (Math.random()>0.85){
 			pet.poop++;
+			if (Math.random()>0.50){
+				printText("~ah... Sorry master I shitted");
+			}
+			else{
+				printText("*farts* I took a shit master");
+			}
 		}
 	}
 	pet.poop = Math.min(Math.max(pet.poop,0),3);
