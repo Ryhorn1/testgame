@@ -29,7 +29,8 @@ var main = {
 		game.stage.disableVisibilityChange = true;
 		
 		drawGameBody();
-		
+		//draw mainBackground
+		background = game.add.sprite(0,0,"mainBackground");
 		//draw pet sprite
 		petSprite = game.add.sprite(this.game.world.centerX,this.game.world.centerY,"petSheet");
 		//change its "center point";
@@ -234,6 +235,7 @@ function tick(){
 	}
 	tickCounter++;
 	console.log("tick");
+	petText = "...";
 	pet.hunger = pet.hunger-3;
 	//pet.happiness = pet.happiness-2;
 	
@@ -264,10 +266,10 @@ function tick(){
 		if (Math.random()>0.70){
 			pet.poop++;
 			if (Math.random()>0.50){
-				petText = "~ah... Sorry master I shitted";
+				petText = "~ah... that one felt good coming out";
 			}
 			else{
-				petText = "*farts* I took a shit master";
+				petText = "*farts* I shitted a big turd master";
 			}
 		} 
 	}
@@ -275,7 +277,7 @@ function tick(){
 		if (Math.random()>0.85){
 			pet.poop++;
 			if (Math.random()>0.50){
-				petText = "~ah... Sorry master I shitted";
+				petText = "hnngh ~ah... I shitted master";
 			}
 			else{
 				petText = "*farts* I took a shit master";
