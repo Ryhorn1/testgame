@@ -30,9 +30,7 @@ var main = {
 		//Allows game to run in background
 		game.stage.disableVisibilityChange = true;
 		
-		drawGameBody();
-		//draw mainBackground (dialogue box)
-		background = game.add.sprite(0,0,"mainBackground");
+		drawMainBody();
 		//draw pet sprite
 		petSprite = game.add.sprite(this.game.world.centerX,this.game.world.centerY,"petSheet");
 		//change its "center point";
@@ -92,7 +90,7 @@ var main = {
         else{
             counter.text = "";
         }
-	timeTick.text = (new Date()).getTime();
+	timeTick.text = (new Date()).toLocaleTimeString();
 	petTextOut.text = petText;
 		
 		
