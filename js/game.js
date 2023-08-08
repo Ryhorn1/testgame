@@ -10,7 +10,9 @@ date = new Date();
 
 var tickCounter = 0 ;
 
-var petText = "";
+var timeTickText = "00:00:00";
+
+var petText = "...";
 
 var time;
 
@@ -29,7 +31,7 @@ var main = {
 		game.stage.disableVisibilityChange = true;
 		
 		drawGameBody();
-		//draw mainBackground
+		//draw mainBackground (dialogue box)
 		background = game.add.sprite(0,0,"mainBackground");
 		//draw pet sprite
 		petSprite = game.add.sprite(this.game.world.centerX,this.game.world.centerY,"petSheet");
@@ -43,6 +45,7 @@ var main = {
 		petSprite.animations.add("happy",[6,7],2,true);
 		petSprite.animations.add("angry",[8,9],2,true);
 		counter = game.add.bitmapText(75, game.world.centerY-200,"pixel","tickCounter",32);
+		timeTick = game.add.bitmapText(75, game.world.centerY-250,"pixel",timeTickText,28);
 		petTextBox = game.add.bitmapText(75, game.world.centerY+150,"pixel",pet.name+":",12);
 		petTextOut = game.add.bitmapText(75, game.world.centerY+200,"pixel","petText",18);
 		petSprite.play("neutral");
@@ -89,6 +92,7 @@ var main = {
         else{
             counter.text = "";
         }
+	timeTick.text = (new Date()).getTime();
 	petTextOut.text = petText;
 		
 		
@@ -123,6 +127,7 @@ var preload = {
 	preload: function(){
 		//loads an image can can be refenced as background
 		this.load.image("background","assets/art/background.png");
+		this.load.image("mainBackground","assets/art/mainBackground.png");
 		//loads a sprite sheet and breaks the sheet up into 10, 128 x 128 sprites.
 		this.load.spritesheet("petSheet","assets/art/pet/petSheet.png",128,128,10);
 		this.load.spritesheet("foodSheet","assets/art/items/foodSheet.png",128,128,9);
@@ -203,7 +208,7 @@ var medicine = {
 //---------------------------SUBSTATE FUNCTIONS---------------------------------------
 
 //time per tick, in minutes
-var TIME_PER_TICK = 1;
+var TIME_PER_TICK = 0.5;
 var timeBegin = 0;
 
 //This function checks if the "real world clock" has advanced enough to increment the game a tick.
@@ -249,12 +254,12 @@ function tick(){
 	pet.happiness = Math.min(Math.max(pet.happiness,0),100);
 	pet.hunger = Math.min(Math.max(pet.hunger,0),100);
 
-	//if happiness is below 20, Glaze is bored and/or sad
-	if(pet.happiness<20){
+	//if happiness is below 25, Glaze is bored and/or sad
+	if(pet.happiness<25){
 		petText = "I'm bored master, can we play?";
 	}
 	
-	if(pet.hunger<15){
+	if(pet.hunger<25){
 		petText = "I'm hungry master, can you feed me plz?";
 	}
 	
