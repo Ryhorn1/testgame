@@ -237,7 +237,7 @@ function tick(){
 	console.log("tick");
 	petText = "...";
 	pet.hunger = pet.hunger-3;
-	//pet.happiness = pet.happiness-2;
+	pet.happiness = pet.happiness-2;
 	
 	//further decrease stats if pet is sick
 	if(pet.sick){
@@ -264,17 +264,33 @@ function tick(){
 	}
 	else if(pet.hunger>90){
 		if (Math.random()>0.70){
-			pet.poop++;
+			//Actual pet bowel movements
 			if (Math.random()>0.50){
-				petText = "~ah... that one felt good coming out";
+				pet.poop++;
+				if (Math.random()>0.50){
+					petText = "~ah... that one felt good coming out";
+				}
+				else{
+					petText = "*farts* I shitted a big turd master";
+				}
 			}
-			else{
-				petText = "*farts* I shitted a big turd master";
+			//Playful fart relieving
+			else if (Math.random()>0.50){
+				if (Math.random()>0.50){
+					petText = "*farts* ~tehe I farted next to you master";
+				}
+				else if (Math.random()>0.50){
+					petText = "*farts a bassy wet one* ~ah, smell it master!";
+				}
+				else{
+					petText = "*farts* ~tehe it really smells doesn't it master"
+				}
 			}
 		} 
 	}
-	else if(pet.hunger<=90){
-		if (Math.random()>0.85){
+	else if(pet.hunger<=85){
+		//Actual pet bowel movements
+		if (Math.random()>0.80){
 			pet.poop++;
 			if (Math.random()>0.50){
 				petText = "hnngh ~ah... I shitted master";
